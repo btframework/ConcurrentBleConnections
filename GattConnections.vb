@@ -33,8 +33,6 @@ Public Class GattConnections : Inherits wclThread
             FClient.Disconnect()
             FClient = Nothing
         End If
-
-        Trace("Connection handling thread has been terminated")
     End Sub
 
     Public Sub New(ByVal Radio As wclBluetoothRadio, ByVal Address As Int64, ByVal Log As ListBox)

@@ -6,7 +6,7 @@ Public Class fmMain
 
     Private Sub [Stop]()
         If FClients.Count > 0 Then
-            For I As Integer = 0 To FClients.Count
+            For I As Integer = 0 To FClients.Count - 1
                 FClients(I).Terminate()
             Next I
             FClients.Clear()
@@ -95,7 +95,7 @@ Public Class fmMain
             lbLog.Items.Add("Found " + FDevices.Count.ToString() + " BLE devices")
             lbLog.Items.Add("Start connecting to GATT devices")
 
-            For I As Integer = 0 To FDevices.Count
+            For I As Integer = 0 To FDevices.Count - 1
                 Dim Client As GattConnections = New GattConnections(FRadio, FDevices(I), lbLog)
                 Dim Res As Integer = Client.Run()
                 If Res = wclErrors.WCL_E_SUCCESS Then
