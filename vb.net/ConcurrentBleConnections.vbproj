@@ -57,13 +57,13 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="wclBluetoothFramework">
-      <HintPath>..\BluetoothFramework\wclBluetoothFramework.dll</HintPath>
+      <HintPath>..\..\..\..\WCL7\NET\Lib\netframework\wclBluetoothFramework.dll</HintPath>
     </Reference>
     <Reference Include="wclCommon">
-      <HintPath>..\BluetoothFramework\wclCommon.dll</HintPath>
+      <HintPath>..\..\..\..\WCL7\NET\Lib\netframework\wclCommon.dll</HintPath>
     </Reference>
     <Reference Include="wclCommunication">
-      <HintPath>..\BluetoothFramework\wclCommunication.dll</HintPath>
+      <HintPath>..\..\..\..\WCL7\NET\Lib\netframework\wclCommunication.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
