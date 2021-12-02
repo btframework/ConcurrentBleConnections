@@ -1,4 +1,8 @@
 /**/bin
 /**/obj
+/**/build
 
 *.suo
+vcl/Delphi/ConcurrentBleConnections.dsk
+*.~pas
+*.~dfm

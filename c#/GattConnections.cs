@@ -13,17 +13,9 @@ namespace ConcurrentBleConnections
         private wclBluetoothRadio FRadio;
         private ListBox FLog;
 
-        private delegate void UpdateLogDelegate(String Msg);
-
-        private void UpdateLog(String Msg)
-        {
-            FLog.Items.Add(Msg);
-        }
-
         private void Trace(String Msg)
         {
-            UpdateLogDelegate d = new UpdateLogDelegate(UpdateLog);
-            FLog.Invoke(d, FAddress.ToString("X12") + ":: " + Msg);
+            Synchronize(FAddress.ToString("X12") + ":: " + Msg);
         }
 
         private void FClient_OnConnect(Object Sender, Int32 Error)
@@ -67,6 +59,11 @@ namespace ConcurrentBleConnections
             }
         }
 
+        protected override void OnSynchronize(object Param)
+        {
+            FLog.Items.Add(Param as String);
+        }
+        
         public GattConnections(wclBluetoothRadio Radio, Int64 Address, ListBox Log)
             : base()
         {

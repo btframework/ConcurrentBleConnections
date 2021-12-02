@@ -4,15 +4,8 @@ Public Class GattConnections : Inherits wclThread
     Private FRadio As wclBluetoothRadio
     Private FLog As ListBox
 
-    Private Delegate Sub UpdateLogDelegate(ByVal Msg As String)
-
-    Private Sub UpdateLog(ByVal Msg As String)
-        FLog.Items.Add(Msg)
-    End Sub
-
     Private Sub Trace(ByVal Msg As String)
-        Dim d As New UpdateLogDelegate(AddressOf UpdateLog)
-        FLog.Invoke(d, FAddress.ToString("X12") + ":: " + Msg)
+        Synchronize(FAddress.ToString("X12") + ":: " + Msg)
     End Sub
 
     Private Sub FClient_OnConnect(ByVal Sender As Object, ByVal [Error] As Integer) Handles FClient.OnConnect
@@ -49,6 +42,11 @@ Public Class GattConnections : Inherits wclThread
             FClient.Disconnect()
             FClient = Nothing
         End If
+    End Sub
+
+    Protected Overrides Sub OnSynchronize(ByVal Param As Object)
+        Dim Msg As String = CType(Param, String)
+        FLog.Items.Add(Msg)
     End Sub
 
     Public Sub New(ByVal Radio As wclBluetoothRadio, ByVal Address As Int64, ByVal Log As ListBox)
