@@ -15,6 +15,22 @@ Public Class GattConnections : Inherits wclThread
         FLog.Invoke(d, FAddress.ToString("X12") + ":: " + Msg)
     End Sub
 
+    Private Sub FClient_OnConnect(ByVal Sender As Object, ByVal [Error] As Integer) Handles FClient.OnConnect
+        If [Error] <> wclErrors.WCL_E_SUCCESS Then
+            Trace("Connection error: " + [Error].ToString("X8"))
+        Else
+            Trace("Client connected")
+
+            Dim Services() As wclGattService = Nothing
+            Dim Res As Integer = FClient.ReadServices(wclGattOperationFlag.goNone, Services)
+            If Res <> wclErrors.WCL_E_SUCCESS Then
+                Trace("Failed to read services: " + Res.ToString("X8"))
+            Else
+                Trace("Services have been read with success")
+            End If
+        End If
+    End Sub
+
     Protected Overrides Function OnInitialize() As Boolean
         FClient = New wclGattClient()
         FClient.Address = FAddress
@@ -48,20 +64,4 @@ Public Class GattConnections : Inherits wclThread
             Return FAddress
         End Get
     End Property
-
-    Private Sub FClient_OnConnect(ByVal Sender As Object, ByVal [Error] As Integer) Handles FClient.OnConnect
-        If [Error] <> wclErrors.WCL_E_SUCCESS Then
-            Trace("Connection error: " + [Error].ToString("X8"))
-        Else
-            Trace("Client connected")
-
-            Dim Services() As wclGattService = Nothing
-            Dim Res As Integer = FClient.ReadServices(wclGattOperationFlag.goNone, Services)
-            If Res <> wclErrors.WCL_E_SUCCESS Then
-                Trace("Failed to read services: " + Res.ToString("X8"))
-            Else
-                Trace("Services have been read with success")
-            End If
-        End If
-    End Sub
 End Class

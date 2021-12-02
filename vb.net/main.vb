@@ -48,7 +48,7 @@ Public Class fmMain
                 If FManager.Count = 0 Then
                     MessageBox.Show("No Bluetooth hardware was found")
                 Else
-                    For I As Integer = 0 To FManager.Count
+                    For I As Integer = 0 To FManager.Count - 1
                         If FManager(I).Available Then
                             FRadio = FManager(I)
                             Exit For
