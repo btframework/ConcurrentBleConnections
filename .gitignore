@@ -3,6 +3,7 @@
 /**/build
 
 *.suo
-vcl/Delphi/ConcurrentBleConnections.dsk
 *.~pas
 *.~dfm
+
+vcl/ConcurrentBleConnections.dsk
