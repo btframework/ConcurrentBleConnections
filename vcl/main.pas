@@ -52,8 +52,10 @@ var
   i: Integer;
 begin
   if FClients.Count > 0 then begin
-    for i := 0 to FClients.Count - 1 do
+    for i := 0 to FClients.Count - 1 do begin
       TGattConnections(FClients[i]).Terminate;
+      TGattConnections(FClients[i]).Free;
+    end;
     FClients.Clear;
   end;
 
@@ -113,7 +115,9 @@ begin
       Client := TGattConnections.Create(FRadio, FDevices[i], lbLog);
       Res := Client.Run;
       if Res = WCL_E_SUCCESS then
-        FClients.Add(Client);
+        FClients.Add(Client)
+      else
+        Client.Free;
     end;
   end;
 end;
