@@ -68,6 +68,9 @@ namespace ConcurrentBleConnections
         private void FManager_OnDiscoveringCompleted(object Sender, wclBluetoothRadio Radio, int Error)
         {
             lbLog.Items.Add("Discovering completed with result: 0x" + Error.ToString("X8"));
+            if (Error != wclErrors.WCL_E_SUCCESS)
+                return;
+
             if (FDevices.Count == 0)
             {
                 lbLog.Items.Add("No BLE devices were found");

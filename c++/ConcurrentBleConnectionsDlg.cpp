@@ -155,6 +155,9 @@ void CConcurrentBleConnectionsDlg::wclBluetoothManagerDiscoveringCompleted(void*
 	CwclBluetoothRadio* const Radio, const int Error)
 {
 	lbLog.AddString(_T("Discovering completed with result: 0x") + IntToHex(Error));
+	if (Error != WCL_E_SUCCESS)
+		return;
+
 	if (FDevices.size() == 0)
 	{
 		lbLog.AddString(_T("No BLE devices were found"));

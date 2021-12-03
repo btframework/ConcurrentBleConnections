@@ -104,20 +104,22 @@ var
   Res: Integer;
 begin
   lbLog.Items.Add('Discovering completed with result: 0x' + IntToHex(Error, 8));
-  if Length(FDevices) = 0 then begin
-    lbLog.Items.Add('No BLE devices were found');
-    Stop;
-  end else begin
-    lbLog.Items.Add('Found ' + IntToStr(Length(FDevices)) + ' BLE devices');
-    lbLog.Items.Add('Start connecting to GATT devices');
+  if Error = WCL_E_SUCCESS then begin
+    if Length(FDevices) = 0 then begin
+      lbLog.Items.Add('No BLE devices were found');
+      Stop;
+    end else begin
+      lbLog.Items.Add('Found ' + IntToStr(Length(FDevices)) + ' BLE devices');
+      lbLog.Items.Add('Start connecting to GATT devices');
 
-    for i := 0 to Length(FDevices) - 1 do begin
-      Client := TGattConnections.Create(FRadio, FDevices[i], lbLog);
-      Res := Client.Run;
-      if Res = WCL_E_SUCCESS then
-        FClients.Add(Client)
-      else
-        Client.Free;
+      for i := 0 to Length(FDevices) - 1 do begin
+        Client := TGattConnections.Create(FRadio, FDevices[i], lbLog);
+        Res := Client.Run;
+        if Res = WCL_E_SUCCESS then
+          FClients.Add(Client)
+        else
+          Client.Free;
+      end;
     end;
   end;
 end;

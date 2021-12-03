@@ -88,6 +88,10 @@ Public Class fmMain
 
     Private Sub FManager_OnDiscoveringCompleted(ByVal Sender As Object, ByVal Radio As wclBluetooth.wclBluetoothRadio, ByVal [Error] As Integer) Handles FManager.OnDiscoveringCompleted
         lbLog.Items.Add("Discovering completed with result: 0x" + [Error].ToString("X8"))
+        If [Error] <> wclErrors.WCL_E_SUCCESS Then
+            Return
+        End If
+
         If FDevices.Count = 0 Then
             lbLog.Items.Add("No BLE devices were found")
             [Stop]()
