@@ -54,7 +54,7 @@ bool CGattConnections::OnInitialize()
 {
 	FClient = new CwclGattClient();
 	__hook(&CwclGattClient::OnConnect, FClient, &CGattConnections::ClientConnect);
-	FClient->SetAddress(FAddress);
+	FClient->Address = FAddress;
 	int Res = FClient->Connect(FRadio);
 	if (Res != WCL_E_SUCCESS)
 	{

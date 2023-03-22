@@ -124,7 +124,7 @@ void CConcurrentBleConnectionsDlg::Stop()
 		FRadio = NULL;
 	}
 	
-	if (wclBluetoothManager.GetActive())
+	if (wclBluetoothManager.Active)
 		wclBluetoothManager.Close();
 
 	FDevices.clear();
@@ -199,7 +199,7 @@ void CConcurrentBleConnectionsDlg::wclBluetoothManagerAfterOpen(void* Sender)
 
 void CConcurrentBleConnectionsDlg::OnBnClickedButtonStart()
 {
-	if (wclBluetoothManager.GetActive())
+	if (wclBluetoothManager.Active)
 		AfxMessageBox(_T("Connections is already running"));
 	else
 	{
@@ -210,15 +210,15 @@ void CConcurrentBleConnectionsDlg::OnBnClickedButtonStart()
 		{
 			FRadio = NULL;
 			
-			if (wclBluetoothManager.GetCount() == 0)
+			if (wclBluetoothManager.Count == 0)
 				AfxMessageBox(_T("No Bluetooth hardware was found"));
 			else
 			{
-				for (size_t i = 0; i < wclBluetoothManager.GetCount(); i++)
+				for (size_t i = 0; i < wclBluetoothManager.Count; i++)
 				{
-					if (wclBluetoothManager.GetRadios(i)->GetAvailable())
+					if (wclBluetoothManager.Radios[i]->Available)
 					{
-						FRadio = wclBluetoothManager.GetRadios(i);
+						FRadio = wclBluetoothManager.Radios[i];
 						break;
 					}
 				}
@@ -244,7 +244,7 @@ void CConcurrentBleConnectionsDlg::OnBnClickedButtonStart()
 
 void CConcurrentBleConnectionsDlg::OnBnClickedButtonStop()
 {
-	if (!wclBluetoothManager.GetActive())
+	if (!wclBluetoothManager.Active)
 		AfxMessageBox(_T("Connection is not running"));
 	else
 		Stop();
