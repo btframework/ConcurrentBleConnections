@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "GattConnections.h"
 
-#include "..\..\..\..\WCL7\CPP\Source\Common\wclErrors.h"
+#include "wclErrors.h"
 
 CString IntToHex(const int i)
 {

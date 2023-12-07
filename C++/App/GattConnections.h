@@ -1,8 +1,8 @@
 #pragma once
 
-#include "..\..\..\..\WCL7\CPP\Source\Common\wclHelpers.h"
-#include "..\..\..\..\WCL7\CPP\Source\Common\wclThread.h"
-#include "..\..\..\..\WCL7\CPP\Source\Bluetooth\wclBluetooth.h"
+#include "wclHelpers.h"
+#include "wclThread.h"
+#include "wclBluetooth.h"
 
 using namespace wclCommon;
 using namespace wclBluetooth;

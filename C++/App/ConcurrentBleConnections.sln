@@ -1,16 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConcurrentBleConnections", "ConcurrentBleConnections.vcproj", "{18DF4E3D-1F51-4D73-AE39-9622E45D7ADA}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConcurrentBleConnections", "ConcurrentBleConnections.vcxproj", "{18DF4E3D-1F51-4D73-AE39-9622E45D7ADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{18DF4E3D-1F51-4D73-AE39-9622E45D7ADA}.Debug|Win32.ActiveCfg = Debug|Win32
-		{18DF4E3D-1F51-4D73-AE39-9622E45D7ADA}.Debug|Win32.Build.0 = Debug|Win32
 		{18DF4E3D-1F51-4D73-AE39-9622E45D7ADA}.Release|Win32.ActiveCfg = Release|Win32
 		{18DF4E3D-1F51-4D73-AE39-9622E45D7ADA}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
