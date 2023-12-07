@@ -34,15 +34,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>ConcurrentBleConnections.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
@@ -57,13 +48,13 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="wclBluetoothFramework">
-      <HintPath>..\..\..\..\WCL7\NET\Lib\netframework\wclBluetoothFramework.dll</HintPath>
+      <HintPath>..\Lib\wclBluetoothFramework.dll</HintPath>
     </Reference>
     <Reference Include="wclCommon">
-      <HintPath>..\..\..\..\WCL7\NET\Lib\netframework\wclCommon.dll</HintPath>
+      <HintPath>..\Lib\wclCommon.dll</HintPath>
     </Reference>
     <Reference Include="wclCommunication">
-      <HintPath>..\..\..\..\WCL7\NET\Lib\netframework\wclCommunication.dll</HintPath>
+      <HintPath>..\Lib\wclCommunication.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
