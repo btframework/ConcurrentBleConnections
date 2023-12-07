@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023.12.07 09:52:09.361,=C:\Users\mike\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023.12.07 09:52:32.162,D:\Projects\Shared Projects\Windows\ConcurrentBleConnections\VCL\Delphi\ConcurrentBleConnectionsDelphi.dproj=C:\Users\mike\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023.12.07 09:53:35.308,=D:\Projects\Shared Projects\Windows\ConcurrentBleConnections\VCL\Delphi\GattConnections.pas</Transaction>
+    <Transaction>2023.12.07 09:53:35.510,=D:\Projects\Shared Projects\Windows\ConcurrentBleConnections\VCL\Delphi\main.pas</Transaction>
+  </Transactions>
+</BorlandProject>

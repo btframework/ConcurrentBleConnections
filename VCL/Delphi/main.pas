@@ -3,8 +3,7 @@ unit main;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, wclBluetooth;
+  Forms, wclBluetooth, Vcl.Controls, Vcl.StdCtrls, System.Classes;
 
 type
   TfmMain = class(TForm)
@@ -41,7 +40,7 @@ var
 implementation
 
 uses
-  GattConnections, wclErrors;
+  GattConnections, wclErrors, SysUtils, Dialogs;
 
 {$R *.dfm}
 

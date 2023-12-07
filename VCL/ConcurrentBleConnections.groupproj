@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{14F5CEDA-29F8-4B8A-B441-F593B37E1F7B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Delphi\ConcurrentBleConnectionsDelphi.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CBuilder\ConcurrentBleConnectionsCBuilder.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ConcurrentBleConnectionsDelphi">
+        <MSBuild Projects="Delphi\ConcurrentBleConnectionsDelphi.dproj"/>
+    </Target>
+    <Target Name="ConcurrentBleConnectionsDelphi:Clean">
+        <MSBuild Projects="Delphi\ConcurrentBleConnectionsDelphi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ConcurrentBleConnectionsDelphi:Make">
+        <MSBuild Projects="Delphi\ConcurrentBleConnectionsDelphi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ConcurrentBleConnectionsCBuilder">
+        <MSBuild Projects="CBuilder\ConcurrentBleConnectionsCBuilder.cbproj"/>
+    </Target>
+    <Target Name="ConcurrentBleConnectionsCBuilder:Clean">
+        <MSBuild Projects="CBuilder\ConcurrentBleConnectionsCBuilder.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ConcurrentBleConnectionsCBuilder:Make">
+        <MSBuild Projects="CBuilder\ConcurrentBleConnectionsCBuilder.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ConcurrentBleConnectionsDelphi;ConcurrentBleConnectionsCBuilder"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ConcurrentBleConnectionsDelphi:Clean;ConcurrentBleConnectionsCBuilder:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ConcurrentBleConnectionsDelphi:Make;ConcurrentBleConnectionsCBuilder:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
