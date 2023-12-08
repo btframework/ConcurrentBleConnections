@@ -1,6 +1,7 @@
 /**/bin
 /**/obj
 /**/build
+/**/__history
 
 *.db
 *.suo
