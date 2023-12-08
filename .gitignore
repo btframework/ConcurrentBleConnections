@@ -1,12 +1,12 @@
 /**/bin
 /**/obj
 /**/build
-/**/lib
 
+*.db
 *.suo
-*.~pas
-*.~dfm
+*.local
+*.txt
+*.stat
+*.identcache
 
-vcl/ConcurrentBleConnections.dsk
-*.ncb
-*.user
+!/**/build/build_result.txt

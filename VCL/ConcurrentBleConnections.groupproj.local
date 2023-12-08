@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-  <Transactions>
-    <Transaction>2023.12.07 09:52:40.102,D:\Projects\Shared Projects\Windows\ConcurrentBleConnections\VCL\ConcurrentBleConnections.groupproj=C:\Users\mike\Documents\Embarcadero\Studio\Projects\ProjectGroup1.groupproj</Transaction>
-  </Transactions>
-  <Default.Personality>
-    <Projects ActiveProject="D:\Projects\Shared Projects\Windows\ConcurrentBleConnections\VCL\CBuilder\ConcurrentBleConnectionsCBuilder.cbproj"/>
-  </Default.Personality>
-</BorlandProject>
