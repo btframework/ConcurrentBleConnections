@@ -9,5 +9,6 @@
 *.txt
 *.stat
 *.identcache
+*.user
 
 !/**/build/build_result.txt
