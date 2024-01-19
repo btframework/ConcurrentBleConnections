@@ -2,7 +2,7 @@
 //                                                                            //
 //   Wireless Communication Library 7                                         //
 //                                                                            //
-//   Copyright (C) 2006-2023 Mike Petrichenko                                 //
+//   Copyright (C) 2006-2024 Mike Petrichenko                                 //
 //                           Soft Service Company                             //
 //                           All Rights Reserved                              //
 //                                                                            //
@@ -801,7 +801,7 @@ typedef enum
 	iocapNotDefined
 } wclBluetoothIoCapability;
 
-///<summary> The structure contains data used to authenticate prior to
+/// <summary> The structure contains data used to authenticate prior to
 ///   establishing an Out-of-Band device pairing. </summary>
 typedef struct
 {
@@ -1845,6 +1845,19 @@ typedef struct
 	__event void _event_name_(void* Sender, const unsigned short Handle, \
 	const unsigned char* const Value, unsigned long const Length)
 
+/// <summary> The <c>OnAdvertisementAppearanceFrame</c> event handler
+///   prototype. </summary>
+/// <param name="Sender"> The object initiates the event. </param>
+/// <param name="Address"> The Bluetooth LE advertiser's MAC address. </param>
+/// <param name="Timestamp"> The frame's timestamp in Universal Time
+///   format. </param>
+/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+///   dBm and +20 dBm at 1 dBm resolution. </param>
+/// <param name="Appearance"> The Bluetooth LE device appearance
+///   value. </param>
+#define wclBluetoothLeAdvertisementAppearanceFrameEvent(_event_name_) \
+	__event void _event_name_(void* Sender, const __int64 Address, \
+	const __int64 Timestamp, const char Rssi, const unsigned short Appearance)
 /// <summary> The <c>OnAdvertisementFrameInformation</c> event handler
 ///   prototype. </summary>
 /// <param name="Sender"> The object initiates the event. </param>
@@ -1993,6 +2006,19 @@ typedef struct
 #define wclBluetoothLeAdvertisementServiceSol128FrameEvent(_event_name_) \
 	__event void _event_name_(void* Sender, const __int64 Address, \
 	const __int64 Timestamp, const char Rssi, const GUID& Uuid)
+/// <summary> The <c>OnAdvertisementTxPowerLevelFrame</c> event handler
+///   prototype. </summary>
+/// <param name="Sender"> The object initiates the event. </param>
+/// <param name="Address"> The Bluetooth LE advertiser's MAC address. </param>
+/// <param name="Timestamp"> The frame's timestamp in Universal Time
+///   format. </param>
+/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+///   dBm and +20 dBm at 1 dBm resolution. </param>
+/// <param name="TxPower"> The TX power level in range from -127 to 128
+///   dBm. </param>
+#define wclBluetoothLeAdvertisementTxPowerLevelFrameEvent(_event_name_) \
+	__event void _event_name_(void* Sender, const __int64 Address, \
+	const __int64 Timestamp, const char Rssi, const char TxPower)
 /// <summary> The <c>OnAdvertisementUuidFrame</c> event handler
 ///   prototype. </summary>
 /// <param name="Sender"> The object initiates the event. </param>
@@ -6930,6 +6956,18 @@ protected:
 
 	/* Event routines. */
 
+	/// <summary> Fires the <c>OnAdvertisementAppearanceFrame</c>
+	///   event. </summary>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC
+	///   address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="Appearance"> The Bluetooth LE device appearance
+	///   value. </param>
+	virtual void DoAdvertisementAppearanceFrame(const __int64 Address, const __int64 Timestamp,
+		const char Rssi, const unsigned short Appearance);
 	/// <summary> Fires the <c>OnAdvertisementFrameInformation</c>
     ///   event. </summary>
     /// <param name="Address"> The Bluetooth LE advertiser's MAC
@@ -7056,6 +7094,17 @@ protected:
 	/// <param name="Uuid"> The 128 bit service UUID. </param>
 	virtual void DoAdvertisementServiceSol128Frame(const __int64 Address, const __int64 Timestamp,
 		const char Rssi, const GUID& Uuid);
+	/// <summary> Fires the <c>OnAdvertisementTxPowerLevelFrame</c> event. </summary>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC
+	///   address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="TxPower"> The TX power level in range from -127 to 128
+	///   dBm. </param>
+	virtual void DoAdvertisementTxPowerLevelFrame(const __int64 Address, const __int64 Timestamp,
+		const char Rssi, const char TxPower);
 	/// <summary> Fires the <c>OnAdvertisementUuidFrame</c> event. </summary>
 	/// <param name="Address"> The Bluetooth LE advertiser's MAC
 	///   address. </param>
@@ -7308,6 +7357,17 @@ public:
     ///   <see cref="WCL_BLE_DEFAULT_SCAN_WINDOW" /> </value>
 	__declspec(property(get = GetScanWindow)) unsigned short ScanWindow;
 
+	/// <summary> The event fires when an appearance advertisement frame
+    ///   received. </summary>
+    /// <param name="Sender"> The object initiates the event. </param>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="Appearance"> The Bluetooth LE device appearance
+	///   value. </param>
+    wclBluetoothLeAdvertisementAppearanceFrameEvent(OnAdvertisementAppearanceFrame);
 	/// <summary> The event fires when new Bluetooth LE advertisement frame
     ///   has been received and provides the common basic information about
     ///   the frame. </summary>
@@ -7436,6 +7496,17 @@ public:
 	///   dBm and +20 dBm at 1 dBm resolution. </param>
 	/// <param name="Uuid"> The 128 bits service UUID. </param>
 	wclBluetoothLeAdvertisementServiceSol128FrameEvent(OnAdvertisementServiceSol128Frame);
+	/// <summary> The event fires when a TX power level advertisement frame
+    ///   received. </summary>
+    /// <param name="Sender"> The object initiates the event. </param>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="TxPower"> The TX power level in range from -127 to 128
+	///   dBm. </param>
+	wclBluetoothLeAdvertisementTxPowerLevelFrameEvent(OnAdvertisementTxPowerLevelFrame);
 	/// <summary> The event fires when an UUID advertisement frame has been
 	///   received. </summary>
 	/// <param name="Sender"> The object initiates the event. </param>
@@ -10902,6 +10973,8 @@ private:
 	bool									FActive;
 	CwclBluetoothLeBeaconWatcherConnection*	FWatcher;
 	
+	void WatcherAdvertisementAppearanceFrame(void* Sender, const __int64 Address,
+		const __int64 Timestamp, const char Rssi, const unsigned short Appearance);
 	void WatcherAdvertisementFrameInformation(void* Sender, const __int64 Address,
 		const __int64 Timestamp, const char Rssi, const tstring& Name,
 		const wclBluetoothLeAdvertisementType PacketType,
@@ -10929,6 +11002,8 @@ private:
 		const __int64 Timestamp, const char Rssi, const unsigned long Uuid);
 	void WatcherAdvertisementServiceSol128Frame(void* Sender, const __int64 Address,
 		const __int64 Timestamp, const char Rssi, const GUID& Uuid);
+	void WatcherAdvertisementTxPowerLevelFrame(void* Sender, const __int64 Address,
+		const __int64 Timestamp, const char Rssi, const char TxPower);
 	void WatcherAdvertisementUuidFrame(void* Sender, const __int64 Address,
 		const __int64 Timestamp, const char Rssi, const GUID& Uuid);
 	void WatcherAltBeaconFrame(void* Sender, const __int64 Address, const __int64 Timestamp,
@@ -10956,6 +11031,18 @@ private:
 	void WatcherStopped(void* Sender);
 
 protected:
+	/// <summary> Fires the <c>OnAdvertisementAppearanceFrame</c>
+	///   event. </summary>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC
+	///   address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="Appearance"> The Bluetooth LE device appearance
+	///   value. </param>
+    virtual void DoAdvertisementAppearanceFrame(const __int64 Address,
+		const __int64 Timestamp, const char Rssi, const unsigned short Appearance);
 	/// <summary> Fires the <c>OnAdvertisementFrameInformation</c>
 	///   event. </summary>
 	/// <param name="Address"> The Bluetooth LE advertiser's MAC
@@ -11086,6 +11173,17 @@ protected:
 	/// <param name="Uuid"> The 128 bit service UUID. </param>
 	virtual void DoAdvertisementServiceSol128Frame(const __int64 Address,
 		const __int64 Timestamp, const char Rssi, const GUID& Uuid);
+	/// <summary> Fires the <c>OnAdvertisementTxPowerLevelFrame</c> event. </summary>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC
+	///   address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="TxPower"> The TX power level in range from -127 to 128
+	///   dBm. </param>
+	virtual void DoAdvertisementTxPowerLevelFrame(const __int64 Address,
+		const __int64 Timestamp, const char Rssi, const char TxPower);
 	/// <summary> Fires the <c>OnAdvertisementUuidFrame</c> event. </summary>
 	/// <param name="Address"> The Bluetooth LE advertiser's MAC
 	///   address. </param>
@@ -11319,6 +11417,17 @@ public:
     ///   <see cref="WCL_BLE_DEFAULT_SCAN_WINDOW" /> </value>
 	__declspec(property(get = GetScanWindow)) unsigned short ScanWindow;
 
+	/// <summary> The event fires when an appearance advertisement frame
+    ///   received. </summary>
+    /// <param name="Sender"> The object initiates the event. </param>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="Appearance"> The Bluetooth LE device appearance
+	///   value. </param>
+    wclBluetoothLeAdvertisementAppearanceFrameEvent(OnAdvertisementAppearanceFrame);
 	/// <summary> The event fires when new Bluetooth LE advertisement frame
     ///   has been received and provides the common basic information about
     ///   the frame. </summary>
@@ -11447,6 +11556,17 @@ public:
 	///   dBm and +20 dBm at 1 dBm resolution. </param>
 	/// <param name="Uuid"> The 128 bits service UUID. </param>
 	wclBluetoothLeAdvertisementServiceSol128FrameEvent(OnAdvertisementServiceSol128Frame);
+	/// <summary> The event fires when a TX power level advertisement frame
+    ///   received. </summary>
+    /// <param name="Sender"> The object initiates the event. </param>
+	/// <param name="Address"> The Bluetooth LE advertiser's MAC address. </param>
+	/// <param name="Timestamp"> The frame's timestamp in Universal Time
+	///   format. </param>
+	/// <param name="Rssi"> The measured RSSI value in dBm at range between -100
+	///   dBm and +20 dBm at 1 dBm resolution. </param>
+	/// <param name="TxPower"> The TX power level in range from -127 to 128
+	///   dBm. </param>
+	wclBluetoothLeAdvertisementTxPowerLevelFrameEvent(OnAdvertisementTxPowerLevelFrame);
 	/// <summary> The event fires when an UUID advertisement frame has been
 	///   received. </summary>
 	/// <param name="Sender"> The object initiates the event. </param>

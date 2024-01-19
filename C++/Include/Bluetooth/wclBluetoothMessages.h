@@ -2,7 +2,7 @@
 //                                                                            //
 //   Wireless Communication Library 7                                         //
 //                                                                            //
-//   Copyright (C) 2006-2023 Mike Petrichenko                                 //
+//   Copyright (C) 2006-2024 Mike Petrichenko                                 //
 //                           Soft Service Company                             //
 //                           All Rights Reserved                              //
 //                                                                            //
@@ -75,6 +75,8 @@ namespace wclBluetooth
 #define WCL_MSG_ID_BLUETOOTH_LE_SERVICE_SOL_32_FRAME				(WCL_MSG_ID_BLUETOOTH_LE_WATCHER_BASE + 9)
 #define WCL_MSG_ID_BLUETOOTH_LE_SERVICE_SOL_128_FRAME				(WCL_MSG_ID_BLUETOOTH_LE_WATCHER_BASE + 10)
 #define WCL_MSG_ID_BLUETOOTH_LE_ADVERTISEMENT_RECEIVED				(WCL_MSG_ID_BLUETOOTH_LE_WATCHER_BASE + 11)
+#define WCL_MSG_ID_BLUETOOTH_LE_TX_POWER_FRAME						(WCL_MSG_ID_BLUETOOTH_LE_WATCHER_BASE + 12)
+#define WCL_MSG_ID_BLUETOOTH_LE_APPEARANCE_FRAME					(WCL_MSG_ID_BLUETOOTH_LE_WATCHER_BASE + 13)
 
 // GATT server messages.
 #define WCL_MSG_ID_BLUETOOTH_LE_GATT_SERVER_BASE					(WCL_MSG_ID_BLUETOOTH_BASE + 70)
@@ -699,6 +701,40 @@ public:
 	CwclBluetoothLeAdvertisementReceived(const wclBluetoothApi Api, const __int64 Address,
 		const __int64 Timestamp, const char Rssi,
 		const wclBluetoothLeAdvertisementFrameRawData& Data);
+};
+
+// -----------------------------------------------------------------------------------------
+
+class CwclBluetoothLeTxPowerFrameMessage : public CwclBluetoothLeAdvertisementFrameMessage
+{
+	DISABLE_COPY(CwclBluetoothLeTxPowerFrameMessage);
+	
+private:
+	char	FTxPower;
+	
+public:
+	CwclBluetoothLeTxPowerFrameMessage(const wclBluetoothApi Api, const __int64 Address,
+		const __int64 Timestamp, const char Rssi, const char TxPower);
+	
+	char GetTxPower() const;
+	__declspec(property(get = GetTxPower)) char TxPower;
+};
+
+// -----------------------------------------------------------------------------------------
+
+class CwclBluetoothLeAppearanceFrameMessage : public CwclBluetoothLeAdvertisementFrameMessage
+{
+	DISABLE_COPY(CwclBluetoothLeAppearanceFrameMessage);
+
+private:
+	unsigned short	FAppearance;
+	
+public:
+	CwclBluetoothLeAppearanceFrameMessage(const wclBluetoothApi Api, const __int64 Address,
+		const __int64 Timestamp, const char Rssi, const unsigned short Appearance);
+	
+	unsigned short GetAppearance() const;
+	__declspec(property(get = GetAppearance)) unsigned short Appearance;
 };
 
 /* GATT server messages. */
