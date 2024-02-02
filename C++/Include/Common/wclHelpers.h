@@ -190,7 +190,8 @@ public:
     ///   <para><c> Build </c> <c> Release </c></para>
     ///   <para><c>=======</c> <c>=========</c></para>
     ///   <para><c> 22000 </c> <c>   21H2  </c></para>
-	///   <para><c> 22621 </c> <c>   22H2  </c></para> </remarks>
+	///   <para><c> 22621 </c> <c>   22H2  </c></para>
+	///   <para><c> 22631 </c> <c>   23H2  </c></para> </remarks>
 	unsigned short GetOsBuild();
 	/// <summary> Gets the OS build number. </summary>
 	/// <value> The OS build number. </value>
@@ -218,7 +219,8 @@ public:
     ///   <para><c> Build </c> <c> Release </c></para>
     ///   <para><c>=======</c> <c>=========</c></para>
     ///   <para><c> 22000 </c> <c>   21H2  </c></para>
-	///   <para><c> 22621 </c> <c>   22H2  </c></para> </remarks>
+	///   <para><c> 22621 </c> <c>   22H2  </c></para>
+	///   <para><c> 22631 </c> <c>   23H2  </c></para> </remarks>
 	__declspec(property(get = GetOsBuild)) unsigned short OsBuild;
 };
 

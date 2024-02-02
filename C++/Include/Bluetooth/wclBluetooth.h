@@ -7288,14 +7288,9 @@ public:
 	/// <returns> If the function succeed the return value is
     ///   <see cref="WCL_E_SUCCESS" />. Otherwise the method returns one of
     ///   the WCL error codes. </returns>
-    /// <remarks> <para> This feature is supported on Windows 10 with the
-	///   Microsoft Bluetooth drivers only. </para>
-	///   <para> If the method returns one of the following errors:
-	///   <see cref="WCL_E_BLUETOOTH_LE_CREATE_SCAN_PARAMS_SET_EVENT_FAILED" />,
-	///   <see cref="WCL_E_BLUETOOTH_RADIO_INSTANCE_NOT_FOUND" />,
-	///   <see cref="WCL_E_BLUETOOTH_OPEN_RADIO_FAILED" /> or
-	///   <see cref="WCL_E_BLUETOOTH_LE_SET_SCAN_PARAMS_FAILED" /> then simple
-	///   call this method with default scan parameters. </para> </remarks>
+    /// <remarks> This feature is supported on Windows 10 with the Microsoft
+	///   Bluetooth drivers only. If the method returns error try to call this
+	///   method with default scan parameters. </remarks>
 	/// <seealso cref="wclBluetoothLeScanningMode" />
 	/// <seealso cref="WCL_BLE_MIN_SCAN_WINDOW" />
     /// <seealso cref="WCL_BLE_MAX_SCAN_WINDOW" />
@@ -11343,14 +11338,9 @@ public:
 	/// <returns> If the function succeed the return value is
     ///   <see cref="WCL_E_SUCCESS" />. Otherwise the method returns one of
     ///   the WCL error codes. </returns>
-    /// <remarks> <para> This feature is supported on Windows 10 with the
-	///   Microsoft Bluetooth drivers only. </para>
-	///   <para> If the method returns one of the following errors:
-	///   <see cref="WCL_E_BLUETOOTH_LE_CREATE_SCAN_PARAMS_SET_EVENT_FAILED" />,
-	///   <see cref="WCL_E_BLUETOOTH_RADIO_INSTANCE_NOT_FOUND" />,
-	///   <see cref="WCL_E_BLUETOOTH_OPEN_RADIO_FAILED" /> or
-	///   <see cref="WCL_E_BLUETOOTH_LE_SET_SCAN_PARAMS_FAILED" /> then simple
-	///   call this method with default scan parameters. </para> </remarks>
+    /// <remarks> This feature is supported on Windows 10 with the Microsoft
+	///   Bluetooth drivers only. If the method returns error try to call this
+	///   method with default scan parameters. </remarks>
 	/// <seealso cref="CwclBluetoothRadio" />
 	/// <seealso cref="wclBluetoothLeScanningMode" />
 	/// <seealso cref="WCL_BLE_MIN_SCAN_WINDOW" />

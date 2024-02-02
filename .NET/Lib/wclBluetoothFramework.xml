@@ -1043,14 +1043,9 @@
             <returns> If the function succeed the return value is
               <see cref="F:wclCommon.wclErrors.WCL_E_SUCCESS" />. Otherwise the method returns one of
               the WCL error codes. </returns>
-            <remarks> <para> This feature is supported on Windows 10 with the
-              Microsoft Bluetooth drivers only. </para>
-              <para> If the method returns one of the following errors:
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_LE_CREATE_SCAN_PARAMS_SET_EVENT_FAILED" />,
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_RADIO_INSTANCE_NOT_FOUND" />,
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_FAILED" /> or
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_LE_SET_SCAN_PARAMS_FAILED" /> then simple
-              call this method with default scan parameters. </para> </remarks>
+            <remarks> This feature is supported on Windows 10 with the
+              Microsoft Bluetooth drivers only. If the method returns error try to
+              call this method with default scan parameters. </remarks>
             <seealso cref="T:wclBluetooth.wclBluetoothRadio" />
             <seealso cref="T:wclBluetooth.wclBluetoothLeScanningMode" />
             <seealso cref="F:wclBluetooth.wclBluetoothConstants.WCL_BLE_MIN_SCAN_WINDOW" />
@@ -1525,14 +1520,9 @@
             <returns> If the function succeed the return value is
               <see cref="F:wclCommon.wclErrors.WCL_E_SUCCESS" />. Otherwise the method returns one of
               the WCL error codes. </returns>
-            <remarks> <para> This feature is supported on Windows 10 with the
-              Microsoft Bluetooth drivers only. </para>
-              <para> If the method returns one of the following errors:
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_LE_CREATE_SCAN_PARAMS_SET_EVENT_FAILED" />,
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_RADIO_INSTANCE_NOT_FOUND" />,
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_FAILED" /> or
-              <see cref="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_LE_SET_SCAN_PARAMS_FAILED" /> then simple
-              call this method with default scan parameters. </para> </remarks>
+            <remarks> This feature is supported on Windows 10 with the
+              Microsoft Bluetooth drivers only. If the method returns error try to
+              call this method with default scan parameters. </remarks>
             <seealso cref="T:wclBluetooth.wclBluetoothLeScanningMode" />
             <seealso cref="F:wclBluetooth.wclBluetoothConstants.WCL_BLE_MIN_SCAN_WINDOW" />
             <seealso cref="F:wclBluetooth.wclBluetoothConstants.WCL_BLE_MAX_SCAN_WINDOW" />
@@ -5365,6 +5355,33 @@
         </member>
         <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_FAILED">
             <summary> Unable to open a Bluetooth Radio driver. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_DRIVER">
+            <summary> Invalid Bluetooth Radio driver instance name. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_PATH">
+            <summary> Invalid Bluetooth Radio driver instance path. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_ACCESS_DENIED">
+            <summary> An application does not have enough rights to open Bluetooth
+              Radio driver. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_DEVICE_NOT_FOUND">
+            <summary> Bluetooth Radio driver not found or not working. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_IN_USE">
+            <summary> The Bluetooth Radio driver is already in use by other
+              application. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_PARAM">
+            <summary> Invalid parameters specified in Bluetooth Radio driver open
+              request. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_NAME">
+            <summary> Invalid Bluetooth Radio driver name. </summary>
+        </member>
+        <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_OPEN_RADIO_COUNT_LIMIT">
+            <summary> Too many opened Bluetooth Radio driver instances. </summary>
         </member>
         <member name="F:wclBluetooth.wclBluetoothErrors.WCL_E_BLUETOOTH_LE_BASE">
             <summary> The base error code for Bluetooth Low Energy. </summary>

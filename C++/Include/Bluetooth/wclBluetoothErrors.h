@@ -397,6 +397,25 @@ const int WCL_E_BLUETOOTH_PAIRING_HANDLED_BY_SYSTEM = WCL_E_BLUETOOTH_BASE + 0x0
 const int WCL_E_BLUETOOTH_RADIO_INSTANCE_NOT_FOUND = WCL_E_BLUETOOTH_BASE + 0x00AA;
 /// <summary> Unable to open a Bluetooth Radio driver. </summary>
 const int WCL_E_BLUETOOTH_OPEN_RADIO_FAILED = WCL_E_BLUETOOTH_BASE + 0x00AB;
+/// <summary> Invalid Bluetooth Radio driver instance name. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_DRIVER = WCL_E_BLUETOOTH_BASE + 0x00AC;
+/// <summary> Invalid Bluetooth Radio driver instance path. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_PATH = WCL_E_BLUETOOTH_BASE + 0x00AD;
+/// <summary> An application does not have enough rights to open Bluetooth
+///   Radio driver. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_ACCESS_DENIED = WCL_E_BLUETOOTH_BASE + 0x00AE;
+/// <summary> Bluetooth Radio driver not found or not working. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_DEVICE_NOT_FOUND = WCL_E_BLUETOOTH_BASE + 0x00AF;
+/// <summary> The Bluetooth Radio driver is already in use by other
+///   application. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_IN_USE = WCL_E_BLUETOOTH_BASE + 0x00B0;
+/// <summary> Invalid parameters specified in Bluetooth Radio driver open
+///   request. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_PARAM = WCL_E_BLUETOOTH_BASE + 0x00B1;
+/// <summary> Invalid Bluetooth Radio driver name. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_INVALID_NAME = WCL_E_BLUETOOTH_BASE + 0x00B2;
+/// <summary> Too many opened Bluetooth Radio driver instances. </summary>
+const int WCL_E_BLUETOOTH_OPEN_RADIO_COUNT_LIMIT = WCL_E_BLUETOOTH_BASE + 0x00B3;
 
 /* Bluetooth LE error codes. */
 
