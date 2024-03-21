@@ -426,7 +426,8 @@ public:
 	wclObexObjectOperationResultEvent(OnPutComplete);
 };
 
-/// <summary> The data processor implements the OBEX Object Push Profile client. </summary>
+/// <summary> The data processor implements the OBEX Object Push Profile
+///   (OPP) client. </summary>
 /// <seealso cref="CwclObexFileClient" />
 class CwclObexOppClient : public CwclObexFileClient
 {
@@ -550,7 +551,7 @@ typedef std::list<wclObexFileObject> wclObexFileObjects;
 	const wclObexFileObjects& Dirs)
 
 /// <summary> The data processor implements the OBEX File Transfer Profile
-///   client. </summary>
+///   (FTP) client. </summary>
 /// <seealso cref="CwclObexFileClient" />
 class CwclObexFtpClient : public CwclObexFileClient
 {
@@ -1198,7 +1199,7 @@ public:
 	wclObexServerOperationResult& Result, CwclStream*& Stream)
 
 /// <summary> The data processor implements the OBEX Object Push Profile
-///   server. </summary>
+///   (OPP) server. </summary>
 /// <seealso cref="CwclCustomObexServer" />
 class CwclObexOppServer : public CwclCustomObexServer
 {
