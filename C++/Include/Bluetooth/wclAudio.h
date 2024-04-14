@@ -29,6 +29,8 @@
 #define _WCL_AUDIO_API_INCLUDE_FILE_ "wclAudioApi.h"
 #include _WCL_AUDIO_API_INCLUDE_FILE_
 
+using namespace wclCommon;
+
 namespace wclAudio
 {
 
@@ -177,9 +179,9 @@ class CwclCustomAudio
 	DISABLE_COPY(CwclCustomAudio);
 
 private:
-	IMMDeviceEnumerator*	FEnumerator;
-	IMMNotificationClient*	FEventHandler;
-	CwclMessageReceiver*	FReceiver;
+	AudioApi::IMMDeviceEnumerator*		FEnumerator;
+	AudioApi::IMMNotificationClient*	FEventHandler;
+	CwclMessageReceiver*				FReceiver;
 
 protected:
 	/// <summary> The method called during audio subsystem
@@ -222,10 +224,10 @@ protected:
 	
 	/// <summary> Gets the Audio devices enumerator interface. </summary>
 	/// <returns> The Audio device enumerator interface. </returns>
-	IMMDeviceEnumerator* GetEnumerator() const;
+	AudioApi::IMMDeviceEnumerator* GetEnumerator() const;
 	/// <summary> Gets the Audio devices enumerator interface. </summary>
 	/// <value> The Audio device enumerator interface. </value>
-	__declspec(property(get = GetEnumerator)) IMMDeviceEnumerator* Enumerator;
+	__declspec(property(get = GetEnumerator)) AudioApi::IMMDeviceEnumerator* Enumerator;
 	
 	/// <summary> Gets the message receiver. </summary>
 	/// <returns> The message receiver object. </returns>
@@ -351,8 +353,8 @@ class CwclAudioSwitcher : public CwclCustomAudio
 private:
 	void GetBluetoothDetails(wclAudioDevice& Device);
 
-	bool GetDeviceProps(IMMDevice* const MMDevice, wclAudioDevice& Device);
-    wclAudioDeviceRoles GetRoles(const EDataFlow Flow, const tstring& Id);
+	bool GetDeviceProps(AudioApi::IMMDevice* const MMDevice, wclAudioDevice& Device);
+    wclAudioDeviceRoles GetRoles(const AudioApi::EDataFlow Flow, const tstring& Id);
 	
 	int EnumDevices(const wclAudioDeviceStates& States, wclAudioDevices& Devices);
 
@@ -503,7 +505,7 @@ class CwclAudioMeter : public CwclCustomAudioEndpoint
 	DISABLE_COPY(CwclAudioMeter);
 	
 private:
-	IAudioMeterInformation*	FMeter;
+	AudioApi::IAudioMeterInformation*	FMeter;
 	
 protected:
 	/// <summary> The method called during audio subsystem
@@ -569,9 +571,9 @@ class CwclAudioVolume : public CwclCustomAudioEndpoint
 	DISABLE_COPY(CwclAudioVolume);
 	
 private:
-	GUID							FContext;
-	IAudioEndpointVolume*			FVolume;
-	IAudioEndpointVolumeCallback*	FVolumeCallback;
+	GUID									FContext;
+	AudioApi::IAudioEndpointVolume*			FVolume;
+	AudioApi::IAudioEndpointVolumeCallback*	FVolumeCallback;
 	
 protected:
 	/// <summary> The method called when a new notification message

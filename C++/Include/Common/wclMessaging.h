@@ -563,8 +563,8 @@ private:
 	bool GetDevClassSetupApi(const GUID& IntfClass, const tstring& DevName, GUID& DevClass);
 	bool GetDevClassCfgMgrApi(const tstring& DevName, GUID& DevClass);
 	
-	static DWORD __stdcall _DeviceChangeNotification(HCMNOTIFICATION hNotify, PVOID Context,
-		CM_NOTIFY_ACTION Action, PCM_NOTIFY_EVENT_DATA EventData, DWORD EventDataSize);
+	static DWORD __stdcall _DeviceChangeNotification(WinApi::HCMNOTIFICATION hNotify, PVOID Context,
+		WinApi::CM_NOTIFY_ACTION Action, WinApi::PCM_NOTIFY_EVENT_DATA EventData, DWORD EventDataSize);
 
 	static UINT __stdcall _ThreadProc(LPVOID lpParam);
 	void ThreadProc();

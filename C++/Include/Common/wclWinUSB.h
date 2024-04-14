@@ -20,6 +20,8 @@
 
 namespace wclCommon
 {
+namespace WinUsb
+{
 
 // Helper class represents a WinUSB device.
 class CwclWinUsbDevice
@@ -57,4 +59,5 @@ public:
 	__declspec(property(get = GetDevicePath)) tstring DevicePath;
 };
 
+}
 }

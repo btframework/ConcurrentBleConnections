@@ -20,7 +20,8 @@
 
 #include "wclConnectionErrors.h"
 
-using namespace wclCommon;
+using wclCommon::CwclMessage;
+using wclCommon::CwclMessageReceiver;
 
 namespace wclCommunication
 {

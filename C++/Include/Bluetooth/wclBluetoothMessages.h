@@ -19,8 +19,6 @@
 
 #include "wclBluetooth.h"
 
-using namespace wclCommon;
-
 namespace wclBluetooth
 {
 

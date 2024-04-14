@@ -23,7 +23,8 @@
 
 #include "wclConnections.h"
 
-using namespace wclCommon;
+using wclCommon::tstring;
+using wclCommon::CwclStream;
 
 namespace wclCommunication
 {

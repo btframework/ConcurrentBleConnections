@@ -22,6 +22,8 @@
 
 namespace wclCommon
 {
+namespace WinApi
+{
 
 #ifndef ERROR_DEVICE_FEATURE_NOT_SUPPORTED
 	#define ERROR_DEVICE_FEATURE_NOT_SUPPORTED	316
@@ -2922,4 +2924,5 @@ bool wclIsUserAnAdmin();
 
 HRESULT wclCreateMsXmlInstance(IXMLDOMDocument** Doc);
 
+}
 }

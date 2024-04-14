@@ -17,7 +17,7 @@
 
 #include "..\Common\wclErrors.h"
 
-using namespace wclCommon;
+using wclCommon::wclException;
 
 namespace wclCommunication
 {

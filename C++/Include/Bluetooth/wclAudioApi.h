@@ -22,6 +22,8 @@
 
 namespace wclAudio
 {
+namespace AudioApi
+{
 
 DEFINE_GUID(CLSID_MMDeviceEnumerator, 0xBCDE0395, 0xE52F, 0x467C, 0x8E, 0x3D, 0xC4, 0x57, 0x92, 0x91, 0x69, 0x2E);
 
@@ -131,7 +133,7 @@ DEFINE_GUID(KSPROPSETID_BtAudio, 0x7FA06C40, 0xB8F6, 0x4C7E, 0x85, 0x56, 0xE8, 0
 #define AUDCLNT_E_EFFECT_STATE_READ_ONLY		((SEVERITY_ERROR << 31) | (FACILITY_AUDCLNT << 16) | 0x042)
 
 #ifndef PROPERTYKEY
-	typedef wclCommon::DEVPROPKEY PROPERTYKEY;
+	typedef wclCommon::WinApi::DEVPROPKEY PROPERTYKEY;
 #endif
 #ifndef REFPROPERTYKEY
 	typedef PROPERTYKEY *REFPROPERTYKEY;
@@ -857,4 +859,5 @@ public:
 		LPCWSTR endpointId) = 0;
 };
 
+}
 }
